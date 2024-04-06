@@ -16,11 +16,11 @@ import GoogleCloudIcon from '../Icons/googleCloudIcon';
 
 const ExperienceCards = () => {
     const experiences = [
-        { title: 'Fusagasuga City Hall', time: '9 months', description: 'Full stack developer with Symfony, CSS, HTML. Developed an open data platform.', logos: [<SymfonyIcon width="50" height="50"/>, <PhpIcon width="50" height="50"/>,<PostgreSqlIcon width="50" height="50"/>, <HtmlIcon width="50" height="50"/>, <CssIcon width="50" height="50"/>, <JsIcon width="50" height="50"/>] },
-        { title: 'Ministry of Environment and Sustainable Development of Colombia', time: '1 year', description: 'Developed new functionalities for an LMS platform using PHP and MySQL.', logos: [<PhpIcon width="50" height="50"/>, <MySqlIcon width="50" height="50"/>, <HtmlIcon width="50" height="50"/>, <CssIcon width="50" height="50"/>, <JsIcon width="50" height="50"/>]},
-        { title: 'ElTiempo', time: '3 years', description: 'Full stack developer using Angular and Symfony. Improved and added new functionalities to their news website.', logos: [<SymfonyIcon width="50" height="50"/>, <PhpIcon width="50" height="50"/>, <MySqlIcon width="50" height="50"/>, <HtmlIcon width="50" height="50"/>, <CssIcon width="50" height="50"/>, <JsIcon width="50" height="50"/>]},
-        { title: 'Sophos Solutions', time: '2 years', description: 'Developed a platform for creating automated tests using Java with Spring Boot and Angular, targeting testers without Automation experience.', logos: [<JavaIcon width="50" height="50"/>, <PostgreSqlIcon width="50" height="50"/>, <AngularIcon width="50" height="50"/>, <HtmlIcon width="50" height="50"/>, <CssIcon width="50" height="50"/>, <TsIcon width="50" height="50"/>, <AwsIcon width="50" height="50"/>]},
-        { title: 'Farmatodo', time: 'Currently, 2 years', description: 'Backend developer in Spring Boot, developing new functionalities for microservices, working with OracleDB and PostgreSQL.', logos: [<JavaIcon width="50" height="50"/>, <SpringBootIcon width="50" height="50"/>, <OracleIcon width="50" height="50"/>, <PostgreSqlIcon width="50" height="50"/>, <GoogleCloudIcon width="50" height="50"/>]},
+        { key: 'city-hall', title: 'Fusagasuga City Hall', time: '9 months', description: 'Full stack developer with Symfony, CSS, HTML. Developed an open data platform.', logos: [<SymfonyIcon width="50" height="50"/>, <PhpIcon width="50" height="50"/>,<PostgreSqlIcon width="50" height="50"/>, <HtmlIcon width="50" height="50"/>, <CssIcon width="50" height="50"/>, <JsIcon width="50" height="50"/>] },
+        { key: 'ministry', title: 'Ministry of Environment and Sustainable Development of Colombia', time: '1 year', description: 'Developed new functionalities for an LMS platform using PHP and MySQL.', logos: [<PhpIcon width="50" height="50"/>, <MySqlIcon width="50" height="50"/>, <HtmlIcon width="50" height="50"/>, <CssIcon width="50" height="50"/>, <JsIcon width="50" height="50"/>]},
+        { key: 'eltiempo', title: 'ElTiempo', time: '3 years', description: 'Full stack developer using Angular and Symfony. Improved and added new functionalities to their news website.', logos: [<SymfonyIcon width="50" height="50"/>, <PhpIcon width="50" height="50"/>, <MySqlIcon width="50" height="50"/>, <HtmlIcon width="50" height="50"/>, <CssIcon width="50" height="50"/>, <JsIcon width="50" height="50"/>]},
+        { key: 'sophos', title: 'Sophos Solutions', time: '2 years', description: 'Developed a platform for creating automated tests using Java with Spring Boot and Angular, targeting testers without Automation experience.', logos: [<JavaIcon width="50" height="50"/>, <PostgreSqlIcon width="50" height="50"/>, <AngularIcon width="50" height="50"/>, <HtmlIcon width="50" height="50"/>, <CssIcon width="50" height="50"/>, <TsIcon width="50" height="50"/>, <AwsIcon width="50" height="50"/>]},
+        { key: 'farmatodo', title: 'Farmatodo', time: 'Currently, 2 years', description: 'Backend developer in Spring Boot, developing new functionalities for microservices, working with OracleDB and PostgreSQL.', logos: [<JavaIcon width="50" height="50"/>, <SpringBootIcon width="50" height="50"/>, <OracleIcon width="50" height="50"/>, <PostgreSqlIcon width="50" height="50"/>, <GoogleCloudIcon width="50" height="50"/>]},
     ];
 
     return (
@@ -38,8 +38,8 @@ const ExperienceCards = () => {
                     </div>
                     <div className='object-left'>
                         <div className='flex m-6'>
-                            {experience.logos.map((logo, index) => (
-                                <div key={index} className='m-2'>{logo}</div>
+                            {experience.logos.map((logo) => (
+                                <div className='m-2'>{logo}</div>
                             ))} 
                         </div>
                     </div>
