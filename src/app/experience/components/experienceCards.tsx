@@ -26,7 +26,7 @@ const ExperienceCards = () => {
     return (
         <div className="grid sm:grid-cols-2 md:grid-cols-2 grid-rows-2 gap-4 m-4 mt-20">
             {experiences.map((experience, index) => (
-                <div key={index} className="bg-white shadow-xl shadow-lg shadow-gray-800 border-1 rounded-3xl">
+                <div key={index} className="bg-white shadow-xl shadow-lg shadow-gray-800 border-1 rounded-3xl md:m-9">
                     <div className=' h-52 bg-slate-200 rounded-t-3xl'>
                         <div className='pt-8'>
                             <span className="text-justify rounded-full shadow-md bg-teal-200 ml-10 text-sm border-spacing-3 border-2 border-teal-300 p-1 text-teal-600">{experience.time}</span>
@@ -37,9 +37,9 @@ const ExperienceCards = () => {
                         <p className="text-sm text-zinc-700 p-8">{experience.description}</p>
                     </div>
                     <div className='object-left'>
-                        <div className='flex m-6'>
+                        <div className='grid grid-rows-2 grid-cols-4 md:grid-rows-2 md:grid-cols-5 m-6'>
                             {experience.logos.map((logo) => (
-                                <div className='m-2'>{logo}</div>
+                                <div className='md:m-2'>{logo}</div>
                             ))} 
                         </div>
                     </div>
