@@ -10,7 +10,7 @@ import ExperienceCards from './components/experienceCards';
 export default function Experience() {
   const pathname = usePathname();
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col" role='main'>
       <Navbar pathUrl={pathname}/>
       <div className='container mx-auto'>
         <ExperienceCards />
