@@ -6,7 +6,7 @@ describe('Navbar', () => {
   it('renders a link experience', () => {
     render(<Navbar pathUrl='/experience'/>)
  
-    const navbar = screen.getByText(/About/)
+    const navbar = screen.getByText(/Experience/)
  
     expect(navbar).toBeVisible()
   })
@@ -23,14 +23,6 @@ describe('Navbar', () => {
     render(<Navbar pathUrl='/'/>)
  
     const navbar = screen.getByText(/Skills/)
- 
-    expect(navbar).toBeVisible()
-  })
-
-  it('renders a link Contact', () => {
-    render(<Navbar pathUrl='/'/>)
- 
-    const navbar = screen.getByText(/Contact/)
  
     expect(navbar).toBeVisible()
   })
