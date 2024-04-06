@@ -27,3 +27,9 @@ jobs:
 
     - name: Run tests
       run: npm run test
+    
+    - name: GitHub Checks
+      uses: poseidon/wait-for-status-checks@v0.3.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
