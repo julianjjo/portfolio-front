@@ -5,7 +5,7 @@ import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-    { name: 'About', href: '/', current: true },
+    { name: 'About Me', href: '/', current: true },
     { name: 'Experience', href: '/experience', current: false },
     { name: 'Skills', href: '#', current: false },
     { name: 'Contact', href: '#', current: false },
@@ -27,11 +27,11 @@ export default function Navbar({ pathUrl }: { pathUrl: string }) {
                         <div className="relative flex h-16 items-center justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                 {/* Mobile menu button*/}
-                                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                <Disclosure.Button role='button' className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                     <span className="absolute -inset-0.5" />
                                     <span className="sr-only">Open main menu</span>
                                     {open ? (
-                                        <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                                        <XMarkIcon data-testid="xmark-icon" className="block h-6 w-6" aria-hidden="true" />
                                     ) : (
                                         <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                                     )}
@@ -39,7 +39,7 @@ export default function Navbar({ pathUrl }: { pathUrl: string }) {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                        <img className="h-8 w-8 rounded-full" src="https://julian-dev.imgix.net/photo.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=10&&w=256&h=256&q=80" alt="self portrait" />
+                                        <img className="h-8 w-8 rounded-full" src="https://avatars.githubusercontent.com/u/5605790?v=4" alt="self portrait" />
                                     </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">
