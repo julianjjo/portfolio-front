@@ -30,6 +30,7 @@ export default function Experience() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': 'https://api.julian-dev.dev'
                 },
                 body: JSON.stringify(formData),
             });
