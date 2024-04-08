@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 
 import "./globals.css";
-import DynamicCanvasBackgroundComponent from "./components/dynamicCanvasBackground";
+import DynamicCanvasBackgroundComponent from "./components/canvasBackground/dynamicCanvasBackground";
 
 const raleway = Raleway({ subsets: ["latin"] });
 

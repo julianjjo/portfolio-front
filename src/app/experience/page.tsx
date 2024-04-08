@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import Navbar from '../components/navbar';
+import Navbar from '../components/navbar/navbar';
 import { usePathname } from 'next/navigation'
 
 import ExperienceCards from './components/experienceCards';
