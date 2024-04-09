@@ -26,11 +26,10 @@ export default function Experience() {
 
         // Llamar a la API
         try {
-            const response = await fetch('https://api.julian-dev.dev/contact_me', {
+            const response = await fetch('/api/contact_me', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'https://api.julian-dev.dev'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(formData),
             });
