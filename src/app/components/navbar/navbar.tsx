@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import { usePathname } from 'next/navigation';
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
@@ -15,10 +15,11 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar({ pathUrl }: { pathUrl: string }) {
+export default function Navbar() {
+    const pathUrl = usePathname();
     navigation.forEach(item => {
         item.current = item.href === pathUrl;
-      });
+    });
     return (
         <Disclosure as="nav" id='navbar' className="bg-gray-800">
             {({ open }) => (
@@ -39,8 +40,8 @@ export default function Navbar({ pathUrl }: { pathUrl: string }) {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                        <img className="h-8 w-8 rounded-full" src="https://avatars.githubusercontent.com/u/5605790?v=4" alt="self portrait" />
-                                    </div>
+                                    <img className="h-8 w-8 rounded-full" src="https://avatars.githubusercontent.com/u/5605790?v=4" alt="self portrait" />
+                                </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (

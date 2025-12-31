@@ -1,15 +1,33 @@
-"use client"
-
 import Navbar from "./components/navbar/navbar";
-import { usePathname } from 'next/navigation'
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "About Me",
+  description: "Learn more about Julian, a seasoned Backend and Full Stack Developer with 8 years of experience.",
+};
 
 export default function Home() {
-  const pathname = usePathname();
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Julian",
+    "jobTitle": "Backend & Full Stack Developer",
+    "url": "https://julianjjo.github.io/",
+    "sameAs": [
+      "https://github.com/julianjjo",
+      // Add LinkedIn if available
+    ],
+    "knowsAbout": ["Java", "JavaScript", "Python", "PHP", "TypeScript", "Microservices", "Cloud Computing"]
+  };
+
   return (
     <main className="flex min flex-col h-full md:h-screen bg-gray-800 bg-opacity-75">
-      <Navbar pathUrl={pathname} />
-      <div className="flex flex-col items-center justify-center md:h-full">          
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Navbar />
+      <div className="flex flex-col items-center justify-center md:h-full">
         <div>
           <div className="text-center p-20">
             <h1 className="text-7xl font-bold items-center" role="heading">About Me</h1>

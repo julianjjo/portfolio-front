@@ -1,17 +1,17 @@
-"use client"
-
 import React from 'react';
 import Navbar from '../components/navbar/navbar';
-import { usePathname } from 'next/navigation'
-
 import ExperienceCards from './components/experienceCards';
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Experience",
+  description: "Explore the professional journey and technical expertise of Julian, featuring 8 years of backend development.",
+};
 
 export default function Experience() {
-  const pathname = usePathname();
   return (
     <main className="flex flex-col" role='main'>
-      <Navbar pathUrl={pathname}/>
+      <Navbar />
       <div className='container mx-auto'>
         <ExperienceCards />
       </div>
