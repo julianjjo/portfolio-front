@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
     return (
-        <main className="flex flex-col bg-slate-800 bg-opacity-75 h-screen" role='main'>
+        <main className="page-veil flex min-h-screen flex-col" role='main'>
             <Navbar />
             <div className='container mx-auto'>
                 <ContactForm />

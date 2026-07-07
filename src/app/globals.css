@@ -3,27 +3,101 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --ink: #05080d;
+  --text: #e6edf3;
+  --muted: #9aa7b8;
+  --line: rgba(148, 163, 184, 0.16);
+  /* Base hue matches the canvas animation's cyan range; .neon-drift rotates it
+     on the same ~60s cycle the canvas uses (0.1deg per frame at 60fps). */
+  --neon: 190 95% 60%;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  color: var(--text);
+  background: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid hsl(var(--neon));
+  outline-offset: 2px;
+}
+
+@keyframes neon-drift {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@layer components {
+  /* Translucent veil between the neon canvas and the content of every page. */
+  .page-veil {
+    background: linear-gradient(
       to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgba(11, 18, 32, 0.55),
+      rgba(5, 8, 13, 0.82)
+    );
+  }
+
+  /* Dark glass panel that lets the canvas glow through. */
+  .glass {
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Signature: accent elements drift through hues in sync with the canvas. */
+  .neon-drift {
+    animation: neon-drift 60s linear infinite;
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 18px hsl(var(--neon) / 0.55),
+      0 0 70px hsl(var(--neon) / 0.3);
+  }
+
+  .neon-button {
+    border: 1px solid hsl(var(--neon) / 0.65);
+    color: hsl(var(--neon) / 0.95);
+    box-shadow: 0 0 16px hsl(var(--neon) / 0.15),
+      inset 0 0 12px hsl(var(--neon) / 0.06);
+    transition: background-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .neon-button:hover:not(:disabled) {
+    background-color: hsl(var(--neon) / 0.12);
+    box-shadow: 0 0 24px hsl(var(--neon) / 0.3),
+      inset 0 0 12px hsl(var(--neon) / 0.08);
+  }
+
+  .neon-button:disabled {
+    opacity: 0.55;
+  }
+
+  .nav-link-active {
+    position: relative;
+  }
+
+  .nav-link-active::after {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: -0.125rem;
+    height: 2px;
+    border-radius: 9999px;
+    background: hsl(var(--neon));
+    box-shadow: 0 0 12px hsl(var(--neon) / 0.8);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .neon-drift {
+      animation: none;
+    }
+  }
 }
 
 @layer utilities {
