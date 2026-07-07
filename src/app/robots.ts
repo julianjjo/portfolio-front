@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://julianjjo.github.io/sitemap.xml',
+        sitemap: 'https://julian-dev.dev/sitemap.xml',
     }
 }

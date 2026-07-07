@@ -127,10 +127,8 @@ export default function CanvasBackground() {
             }
         }
 
-        // Animation loop
-        function loop() {
-            window.requestAnimationFrame(loop);
-
+        // Draw a single frame of the animation
+        function frame() {
             ++tick;
 
             if (ctx !== null && canvas !== null) {
@@ -148,8 +146,21 @@ export default function CanvasBackground() {
             }
         }
 
-        // Start the animation loop
-        loop();
+        // Animation loop
+        function loop() {
+            window.requestAnimationFrame(loop);
+            frame();
+        }
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            // Render a static composition instead of animating
+            for (let i = 0; i < 500; i++) {
+                frame();
+            }
+        } else {
+            // Start the animation loop
+            loop();
+        }
 
         // Handle window resize
         const handleResize = () => {

@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Raleway } from "next/font/google";
+import { IBM_Plex_Mono, Raleway } from "next/font/google";
 
 import "./globals.css";
 import DynamicCanvasBackgroundComponent from "./components/canvasBackground/dynamicCanvasBackground";
 
-const raleway = Raleway({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"], variable: "--font-raleway" });
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -15,10 +20,11 @@ export const metadata: Metadata = {
   keywords: ["Backend Developer", "Full Stack Developer", "Java", "Python", "JavaScript", "TypeScript", "Clean Architecture", "Julian Portfolio"],
   authors: [{ name: "Julian" }],
   creator: "Julian",
+  metadataBase: new URL("https://julian-dev.dev"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://julianjjo.github.io/", // Adjust if different
+    url: "https://julian-dev.dev/",
     title: "Julian | Backend & Full Stack Developer",
     description: "Seasoned Backend Developer specializing in creating robust, scalable solutions.",
     siteName: "Julian Portfolio",
@@ -41,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={raleway.className}>
+      <body className={`${raleway.variable} ${plexMono.variable} font-sans`}>
         <DynamicCanvasBackgroundComponent />
         {children}
       </body>

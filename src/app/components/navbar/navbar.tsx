@@ -5,10 +5,10 @@ import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-    { name: 'About Me', href: '/', current: true },
-    { name: 'Experience', href: '/experience', current: false },
-    { name: 'Skills', href: '#', current: false },
-    { name: 'Contact', href: '/contact', current: false },
+    { name: 'About Me', href: '/' },
+    { name: 'Experience', href: '/experience' },
+    { name: 'Skills', href: '/skills' },
+    { name: 'Contact', href: '/contact' },
 ]
 
 function classNames(...classes: string[]) {
@@ -17,11 +17,9 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
     const pathUrl = usePathname();
-    navigation.forEach(item => {
-        item.current = item.href === pathUrl;
-    });
+    const isCurrent = (href: string) => href === pathUrl;
     return (
-        <Disclosure as="nav" id='navbar' className="bg-gray-800">
+        <Disclosure as="nav" id='navbar' className="glass sticky top-0 z-10 border-x-0 border-t-0">
             {({ open }) => (
                 <>
                     <div id="navbar-desktop" className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -39,8 +37,9 @@ export default function Navbar() {
                                 </Disclosure.Button>
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                                <div className="flex flex-shrink-0 items-center">
+                                <div className="flex flex-shrink-0 items-center gap-3">
                                     <img className="h-8 w-8 rounded-full" src="https://avatars.githubusercontent.com/u/5605790?v=4" alt="self portrait" />
+                                    <span className="hidden font-mono text-sm text-slate-300 md:block">julian-dev</span>
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">
@@ -49,10 +48,10 @@ export default function Navbar() {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                    isCurrent(item.href) ? 'nav-link-active neon-drift text-white' : 'text-gray-300 hover:bg-gray-700/60 hover:text-white',
                                                     'rounded-md px-3 py-2 text-sm font-medium'
                                                 )}
-                                                aria-current={item.current ? 'page' : undefined}
+                                                aria-current={isCurrent(item.href) ? 'page' : undefined}
                                             >
                                                 {item.name}
                                             </a>
@@ -71,10 +70,10 @@ export default function Navbar() {
                                     as="a"
                                     href={item.href}
                                     className={classNames(
-                                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                        isCurrent(item.href) ? 'bg-gray-900/80 text-white' : 'text-gray-300 hover:bg-gray-700/60 hover:text-white',
                                         'block rounded-md px-3 py-2 text-base font-medium'
                                     )}
-                                    aria-current={item.current ? 'page' : undefined}
+                                    aria-current={isCurrent(item.href) ? 'page' : undefined}
                                 >
                                     {item.name}
                                 </Disclosure.Button>
